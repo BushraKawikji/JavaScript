@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let operation = prompt("Enter The Operation Symbol",'+');
+        let firstNum = Number(prompt("Enter The First Number",'0'));
+        let secondNum = Number(prompt("Enter The Second Number",'0'));
+        let result;
+        switch(operation){
+            case '+':
+                result = firstNum + secondNum;
+                document.write(`The Result of ${firstNum} + ${secondNum} = ${result}`);
+                break;
+            case '-':
+                result = firstNum - secondNum;
+                document.write(`The Result of ${firstNum} + ${secondNum} = ${result}`);
+                break;
+            case '*':
+                result = firstNum * secondNum;
+                document.write(`The Result of ${firstNum} + ${secondNum} = ${result}`);
+                break;
+            case '/':
+                result = firstNum / secondNum;
+                document.write(`The Result of ${firstNum} + ${secondNum} = ${result}`);
+                break;
+            default:
+                document.write('You entered a wrong number');
+                
+        }
+    </script>
+</body>
+</html>
