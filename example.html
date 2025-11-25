@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let student = {
+            name: "Bushra",
+            age: 22,
+            major: "Software Engineering",
+            isGraduate: true
+        };
+
+        // Access
+        console.log(student.name);
+        // Modify 
+        student.age = 23;
+        console.log(student);
+        // Delete
+        delete student.major;
+        console.log(student);
+
+        // Nested Objects
+        let student2 = {
+            fullName: "Bushra",
+            education: {
+                degree: "Software Engineering",
+                gpa: 3.84
+            }
+        };
+        console.log(student2.education.degree);
+
+        // Object contains methods
+        let person = {
+            name: "Bushra",
+            birthYear: 2003,
+
+            calcAge() {
+                return 2025 - this.birthYear;
+            }
+        };
+
+        console.log(person.calcAge()); // 22
+
+
+        // ❄ freeze()   
+
+        // يمنع:
+
+        // الإضافة
+
+        // الحذف
+
+        // التعديل
+        let obj = { name: "Bushra" };
+        Object.freeze(obj);
+
+        obj.name = "Eman"; // won't change
+        console.log(obj.name);
+
+
+        // seal()
+        //         يسمح:
+        // بالتعديل فقط
+        // ويمنع:
+        // الإضافة الجديدة
+        // الحذف
+
+        let obj2 = { name: "Bushra" };
+        Object.seal(obj2);
+
+        obj2.name = "Eman"; // allowed
+        delete obj2.name;   // not allowed
+
+        // -------------------------------------------
+
+        console.log(Object.keys(person));
+        console.log(Object.values(person));
+        console.log(Object.entries(person));
+
+
+
+        // -----------------------------------------
+        // Inheritance
+        let person2 = {
+            greet() {
+                console.log("Hello");
+            }
+        };
+
+        let bushra = Object.create(person2);
+        bushra.name = "Bushra";
+
+        bushra.greet(); // inherits from person
+
+        // --------------------------------------------
+        // map() is an array method
+        // Syntax
+        // array.map(function (element, index, array) {
+        //     return newValue;
+        // });
+        // map() must return something.
+        // map() DOES NOT modify the original array
+        let arr = [1, 2, 3];
+
+        let doubled = arr.map(n => n * 2);
+
+        console.log(arr);     // [1, 2, 3]
+        console.log(doubled); // [2, 4, 6]
+
+        // ✔ Example 1 — Extract only names
+        let users = [
+            { name: "Bushra", age: 22 },
+            { name: "Eman", age: 25 }
+        ];
+
+        let names = users.map(u => u.name);
+
+        console.log(names); // ["Bushra", "Eman"]
+
+        // ✔ Example 2 — Add extra fields to objects
+        let products = [
+            { price: 10 },
+            { price: 20 }
+        ];
+
+        let withTax = products.map(p => ({
+            ...p,
+            tax: p.price * 0.16
+        }));
+
+        console.log(withTax);
+        // [{price:10, tax:1.6}, {price:20, tax:3.2}]
+
+
+
+
+
+    </script>
+</body>
+
+</html>
